@@ -20,9 +20,9 @@ $message = filter_input(INPUT_POST, 'message');
       <button>OK</button>
     </form>
     <?php 
-      if ($message == '東京'):
+      if ($message === '東京'):
         h('正解');
-      elseif ($message == ''):
+      elseif ($message === ''):
         h('');
       else:
         h('不正解');
