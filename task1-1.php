@@ -3,8 +3,7 @@
 function h($str) {
   echo htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
 }
-$message = filter_input(INPUT_GET, 'message');
-$test = 'test';
+$message = filter_input(INPUT_POST, 'message');
 
 ?>
 
@@ -16,14 +15,14 @@ $test = 'test';
   </head>
   <body>
     <h1>日本の首都は？</h1>
-    <form method="get" action="task1.php">
+    <form method="post">
       <input type="text" name="message">
       <button>OK</button>
     </form>
     <?php 
-      if ($message == '東京'):
+      if ($message === '東京'):
         h('正解');
-      elseif ($message == ''):
+      elseif ($message === ''):
         h('');
       else:
         h('不正解');
